@@ -1,3 +1,4 @@
+/* Estrutura */
 body {
     background-color: rgb(211, 211 ,211);
 }
@@ -7,7 +8,7 @@ div {
     margin: 0px 100px;
     padding: 10px;
 }
-
+/*imagem do post */
 .principal img {
     width: auto;
     height: auto;
@@ -46,7 +47,7 @@ div {
     font-style: italic;
     font-size: 12px;
 }
-
+/* listas */
 ol li ul li{
     display: inline;
     margin: 5px;
@@ -68,12 +69,12 @@ ol li a:hover {
     text-decoration: underline;
     color: blue;
 }
-
+/* videos */
 iframe {
     margin:10px auto 10px auto;
     display:block;
 }
-
+/* posts */
 #paginas li{
     display: inline-block;
     position: relative;
@@ -81,32 +82,39 @@ iframe {
 
 #paginas li a figure {
     max-width: 200px;
-    margin: 10px;
+    margin: 50px;
 }
 
 #paginas li figure img {
-    width: 200px;
-    height: 130px;
+    width: 300px;
+    height: 200px;
 }
 
-#paginas li figure figcaption h1{
-    top: -5px;
-    left: 10px;
+#paginas li figure figcaption {
+    top: 0px;
+    left:  0px;
     position: absolute;
     opacity: 0;
-    color: white;
-    font-weight: bold;
-    font-size: 24px;
     background-color: rgba(0, 0, 0, 0.8);
-    width: 200px;
-    height: 130px;
+    width: 300px;
+    height: 200px;
+    margin: 50px;
 }
 
-#paginas li a figure figcaption h1:hover {
+#paginas li a figure figcaption:hover {
     opacity: 1;
     transition: 1s;
 }
 
+#paginas li a figure figcaption h1 {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+}
+/* rodape */
 #rodape{
     width: 100%;
     height: auto;
@@ -128,7 +136,7 @@ iframe {
     text-decoration: none;
     color: white;
 }
-
+/* menu */
 #menu {
     position: absolute;
     right: 200px;
@@ -152,7 +160,7 @@ iframe {
     color: white;
     transition: 500ms;
 }
-
+/* barra do topo */
 header h1 a {
     color: rgb(0, 0, 255);
     text-shadow: 5px 2px black;
