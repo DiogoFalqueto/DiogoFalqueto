@@ -1,0 +1,18 @@
+.content {
+    margin: 0 auto;
+    max-width: 80%;
+    text-align: center;
+}
+
+.link-none {
+    text-decoration: none;
+    color: rgb(0, 0, 0)
+}
+.link-none:hover {
+    text-decoration: none;
+    color: rgb(0, 0, 0)
+}
+
+.posts > div.card {
+    margin: 10px;
+}
