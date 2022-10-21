@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>DiogoCripto - Blog de tecnologia</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="../index.html">DiogoCripto</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../sobre.html">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/DiogoFalqueto">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1>Docker</h1>
+
+        <h2>O que é ?</h2>
+
+        <img src="../img/docker-icone.jpg" class="img-top float-left">
+
+        <p>O docker é um software para criar e gerenciar containes.</p>
+
+        <h4>O que são containes?</h4>
+
+        <p>Container é uma maneira de rodar um program de forma isolada do resto do sistema.
+            O programa é enganado pelo sistema operacional linux, e acredita esta rodando sozinho na maquina.
+            O sistema mente sobre os outros processos em execução, o hardware e a conexão de
+            rede da maquina.</p>
+
+        <h4>Containes são maquinas virtuais?</h4>
+
+        <p>Não, containes rodam software apenas. já maquinas virtuais, como o virtualbox,
+            rodam maquinas inteiras(processador, memoria, hd, ssd, etc) em forma de software.
+            Elas são mais seguras, porem muinto mais pesadas para rodar, e gataria muinto mais
+            recurso fazer uma infraestrutura em maquinas virtuais do que com containes.</p>
+
+            <img src="../img/docker-search.jpg" class="img">
+
+        <h4>Qual a diferença entre containes e imagens?</h4>
+
+        <p>Um container é criado aparti de uma imagem, a imagem contem todos os dados do software
+            e configurações, e o container é criado para rodar esse software. Uma imagem pode dar
+            origem a infinitos conteiners e todos eles, aprincipio, seriam identicos.</p>
+
+        <ul>
+            <h4>Para quer fazer isso?</h4>
+
+            <li>Criar um container ajuda na segurança do sistema, pois se algem hackear o container
+                não tem acesso ao resto do sistema.</li>
+            <li>Ajuda a padronizar um sistema, já que todos que rodarem esse container terão o mesmo software,
+                nas mesmas condições.</li>
+            <li>Facilita na distribuição do software, pois só tem que distribuir a imagem do container.</li>
+            <li>Facilita rodar o mesmo software em diferentes infraestruturas e sistemas operacionais.</li>
+            <li>Acesso a containes de outras pessoas da comunidade.</li>
+        </ul>
+
+        <h2>Como usar?</h2>
+
+        <h4>Instale o docker</h4>
+
+        <p>Primeiramente temos que instalar o docker no linux. Se você usa outro sistema operacional
+            saiba que o docker precisa do linux rodando, de alguma forma.
+            Para usar docker no Windows e no Mac o software do docker instala e inicia um hyper-v,
+            uma especie de maquina virtual linux, para o docker rodar dentro.
+            Então, rodar o docker fora do linux é muinto mais pesado e gasta muinto mais recurso.</p>
+
+        <h4>Instalar no linux</h4>
+
+        <p>Rode o comando para instalar pacotes da sua distro.
+            Exemplo do Arch: <code class="code">sudo pacman -S docker</code></p>
+
+        <p>Caso não saiba o comando para sua distro, procure no Google.</p>
+
+        <p>Depois inicie o serviço:</p>
+
+        <code class="code">sudo systemctl start docker</code>
+
+        <p>Habilete para iniciar com o sistema:</p>
+
+        <code class="code">sudo systemctl enable docker</code>
+
+        <p>Depois adicione o seu usuario no grupo do docker, para ele poder gerenciar os containes.
+            Caso contrario apenas o usuario root o faz.</p>
+
+        <code class="code">sudo usermod -aG docker</code>
+
+        <p>Proto, o docker esta usavel.</p>
+
+        <h4>Logar no docker</h4>
+
+        <p>Para logar no docker, primeiro você deve criar uma conta no docker hub ou sistema de
+            registro que esteja usando. Depois use o comando docker login -u &lt username &gt e informe a
+            senha quando solicitado. Tambem é possível usar um token de acesso no lugar da senha,
+            procure na documentação do docker.</p>
+
+        <h4>Como funciona gerenciamento de containes?</h4>
+
+        <p>Containers são criados apatir de imagens. Esistem varias imagens publicas para o
+            docker no docker hub, usaremos a do debian. O comando pull(puxar), baixa as imagens:</p>
+
+        <code class="code">docker pull debian</code>
+
+        <p>Para rodar as imagens use:</p>
+
+        <code class="code">docker run debian</code>
+
+        <p>Isso pode ser feito de duas maneiras, modo interativo(abre um shell no termil no hora)
+            ou modo separado/detach(roda em backgroud).
+            Para controlar isso use as flag -it ou -d repectivamente.</p>
+
+        <p>Quando criados os container recebem um id e um nome, que pode ser definido manualmente com
+            a flag --name ou serar gerado aliatoriamente. Os comandos que manipulam containes recebem
+            um dos dois para especificar o container.</p>
+
+        <p>Um container pode espor portas, essas ficam espostas na maquina hospedeira(host). Para fazer isso quando o
+            container for criado adicione a flag -p e as postas o serem mapeadas.
+            Ex:</p>
+        <code class="code">docker run -p 3000:80 debian</code>
+
+        <p>Aqui eu mapei a porta 3000 da maquina hospedeira para a porta 80 do container.</p>
+
+        <p>Para listar containes rodando use docker ps ou docker ps -a para listar todos(rodando e parados)</p>
+
+        <p>Apois modificar um container, ao ser finalizado, as alterações seram perdidas.
+            A menos que você save as alterações em uma nova imagem com o comando docker commit.
+            Ex:</p>
+
+        <code class="code">docker commit &lt container &gt &lt repositorio &gt:&lt tag &gt</code>
+
+        <p>repositorio: nome final da imagem<br>
+            tag: tag de versão da imagem</p>
+
+        <p>Caso a parte da repositorio e/ou tag não forem especificados,
+            serar usado os que deram origem ao container.</p>
+
+        <ul>
+            <h4>Outros comandos basicos:</h4>
+
+            <li><code class="code">docker stop &lt container &gt</code> => para um container.</li>
+            <li><code class="code">docker start &lt container &gt</code> => retoma o container.</li>
+            <li><code class="code">docker rm &lt container &gt</code> => deleta o container.</li>
+            <li><code class="code">docker rmi &lt image &gt</code> => deleta a imagem.</li>
+
+        </ul>
+
+        <h2>Imagens</h2>
+
+        <p>As imagens podem ser baixadas de outros repositorios alem do docker hub.
+            Você pode criar o seu próprio repositorio com a imagem registry.
+            Caso queira saber como exatamente, pesquise no Google.</p>
+
+        <p>É possível pesquisar por images com o comando docker search.</p>
+
+        <p>Toda imagem tem um id, que é seu hash, um repositorio(ex: kalilinux/kali-rolling)
+            e uma tag, normalmente latest.</p>
+
+        <p>As tags das imagens são para separar uma mesma imagem em versões diferentes
+            (como se focem branch de git). Ex: latest(principal), beta, alpha, etc.</p>
+
+        <p>É possível adicionar tag nas suas imagens usando o comando docker tag
+            &lt imagem velha &gt:&lt tag &gt &lt nova imagem &gt:&lt tag &gt.</p>
+
+        <h2>Docker Network</h2>
+
+        <p>As Networks(Redes) do docker servem para que os containers possam falar um com o outro.</p>
+        <p>Para listar as redes use:</p>
+
+        <code class="code">docker network ls</code>
+
+        <p>Para criar uma nova rede use:</p>
+
+        <code class="code">docker network create &lt nome &gt</code>
+
+        <p>Para conectar um container a uma rede, quando inicia:</p>
+
+        <code class="code">docker run --network &lt network &gt &lt image &gt</code>
+
+        <p>Para conctar um container a uma rede, depois de iniciar:</p>
+
+        <code class="code">docker network connect &lt network &gt &lt container &gt</code>
+
+        <p>Para disconectar de uma rede, sem encerrar o container:</p>
+
+        <code class="code">docker network disconnect &lt network &gt &lt container &gt</code>
+
+        <p>Para apagar uma rede:</p>
+
+        <code class="code">docker network rm &lt network &gt</code>
+
+        <h4>Docker DNS</h4>
+
+        <p>Dentro de uma rede docker os containers podem se identificar usando DNS.
+            Se você resolver o dns com o nome do container, o docker retorna o ip.
+            Ex:
+        </p>
+
+        <h4>container 1 (debian1)</h4>
+        <code class="code">
+<pre>
+root@abc24589f355:/# ping debian2
+PING debian2 (172.18.0.3) 56(84) bytes of data.
+64 bytes from debian2.test (172.18.0.3): icmp_seq=1 ttl=64 time=0.066 ms
+64 bytes from debian2.test (172.18.0.3): icmp_seq=2 ttl=64 time=0.048 ms
+64 bytes from debian2.test (172.18.0.3): icmp_seq=3 ttl=64 time=0.049 ms
+</pre>
+</code>
+        <h4>container2 (debian2)</h4>
+        <code class="code">
+<pre>
+root@abc24589f355:/# ping debian1
+PING debian2 (172.18.0.2) 56(84) bytes of data.
+64 bytes from debian2.test (172.18.0.2): icmp_seq=1 ttl=64 time=0.066 ms
+64 bytes from debian2.test (172.18.0.2): icmp_seq=2 ttl=64 time=0.048 ms
+64 bytes from debian2.test (172.18.0.2): icmp_seq=3 ttl=64 time=0.049 ms
+</pre>
+</code>
+
+        <h2>Dockerfile</h2>
+
+        <p>O Dockerfile é um arquivo que contem instruções para criar uma imagem docker.
+            Comandos:</p>
+
+        <code class="code">
+<pre>
+FROM => imagem base para a criação.
+RUN => roda o comando.
+COPY => copia os arquivos.
+CMD => comando a ser rodado quando o container inicia.
+WORKDIR => diretorio onde o container inicia.
+EXPOSE => espoem a porta do container.
+ENV => define variaveis de ambiente.
+Criando um Dockerfile:
+FROM node	#usa a imagem do node como base
+WORKDIR /usr/app	#usa o diretorio /usr/app como diretorio inicial
+COPY package*.json ./	#copia todos os arquivos com o nome package e extensão .json para a pasta /usr/app
+RUN npm install	#roda o comando npm install, para baixar as dependencias
+EXPOSE 3000	#exponem a porta 3000
+CMD [“node”, “index.js”]	#roda o comando node index.js quando o container iniciar
+</pre>
+</code>
+
+        <p>Para criar a imagem apatir do Dockerfile usarei o comando
+            <code class="code">docker build &lt diretorio &gt</code> ,
+            onde o &lt diretorio &gt representa o diretorio onde se encontra o Dockerfile.
+            Caso o arquivo dockerfile esteja com outro nome use a flag –file ou -f para
+            indicar o nome do arquivo.
+        </p>
+
+        <h2>Publicar imagem</h2>
+
+        <p>Primeiramente, você tem que estar logado.
+            Para publicar uma imagem, escolha um nome disponivel e que siga as regras de nomeasão.
+            Isso pode ser feito em nivel global (node:latest) ou por usuario(kalilinux/kali-rolling).
+        </p>
+
+        <p>Caso já tenha criado a imagem com um nome errado basta usar o comando <code class="code">docker
+    tag &lt nome errado &gt:&lt tag &gt &lt nome valido &gt:&lt tag &gt</code> para mudar o nome e/ou a tag.
+            Ex: <code class="code">docker tag teste:test username/teste:latest</code></p>
+
+        <p>Depois use o comando <code class="code">docker push &lt imagem &gt</code> para publicar o pacote.
+    Ex: <code class="code">docker push username/teste:latest</code></p>
+
+        <h2>Docker Compose</h2>
+
+        <h4>O que é?</h4>
+
+        <p>O docker compose é um orquestrador de containers, ou seja ele gerencia vários
+            containers de maneira facil. Dentro do docker compose, todos os containers
+            estão na mesma rede.</p>
+
+        <h4>Instalar</h4>
+
+        Para instalar o docker compose no arch linux rode:
+        <code class="code">sudo pacman S docker-compose</code>
+
+        <h4>Como usar?</h4>
+
+        <p>Crie um arquivo chamo docker-compose.yml
+            Exemplo de arquivo:</p>
+
+        <code class="code">
+<pre>
+version: "3"	#Define a versão
+
+services:	#lista os serviços
+	database: 	#serviço de banco de dados
+		image: postgres	#define a imagem
+		restart: always		#manda reiniciar o container sempre o ele encerar
+		environment:	#lista variaveis de ambiente
+			POSTGRES_PASSWORD: "123"
+			POSTGRES_USER: docker
+			POSTGRES_DB: blog
+	web:	#serviço do servidor node
+		depends_on: ["database"]	#só inicia depois do banco de dados
+		build: .		#manda criar a imagem apartirr do Dockerfile local
+		restart: always		#manda reiniciar o container sempre o ele encerar
+		ports: ["3000:3000"]	#mapeia a porta 3000 para a maquina hospedeira
+		environment:	#lista variaveis de ambiente
+			DATABASE_URL: postgres://docker:123@database:5432/blog
+			DATABASE_LOG: ""
+			SECRET_SESSION: 4f7Cbb3e383B9c19B98923eCEB8b0AEb46D11C7b877BCAd1FCbC0a9D75042
+</pre>
+</code>
+
+        <p>Com o arquivo criado rode o comando:</p>
+
+        <code class="code">docker compose up</code>
+
+        <p>Ele vai achar o arquivo docker-compose.yml no diretorio atual e rodar.
+            Você pose especificar outro nome de arquivo com a flag -f ou --file.
+            O docker compose suporta modo detach com --detach ou -d para rodar em backgroud.
+        </p>
+
+        <p>Para listar os docker compose rodando use:</p>
+
+        <code class="code">docker compose ls</code>
+
+        <p>Para remover os containers rode:</p>
+
+        <code class="code">docker compose down</code>
+
+        <p>Ele vai remover os containers e a rede criadas pelo comando anterior.</p>
+
+        <p>Você pode depurar o docker-compose.yml com o comando:</p>
+
+        <code class="code">docker compose config</code>
+
+        <p>Que ele vai listar todas as cofigurações dos seus serviços, explicitas e inplicitas.</p>
+
+        <h2>Conclução</h2>
+
+        <p>Agora você sabe o basico sobre docker e docker compose. Aproveite seu novo conhecimento!</p>
+    </div>
+
+    <!-- JavaScript (Opcional) -->
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

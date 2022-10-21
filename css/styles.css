@@ -36,3 +36,6 @@
     margin: 10px;
     display:inline-block;
 }
+.code > pre {
+    color: rgb(255, 255, 255)
+}
