@@ -2,10 +2,19 @@
     margin: 0 auto;
     max-width: 80%;
 }
+.footer {
+    background-color: #212529;
+    color:rgb(255, 255, 255);
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+}
+
 .text-center {
     text-align: center;
 }
 
+/* remove estilos padrões de componentes */
 .link-none {
     text-decoration: none;
     color: rgb(0, 0, 0)
@@ -13,6 +22,12 @@
 .link-none:hover {
     text-decoration: none;
     color: rgb(0, 0, 0)
+}
+.list-none {
+    list-style: none;
+}
+.footer-link {
+    color: rgb(255, 255, 255);
 }
 
 .posts > div.card {
@@ -22,6 +37,7 @@
 .img-top {
     width: 100%;
     max-width: 200px;
+    margin: 10px;
 }
 .img {
     width: 100%;

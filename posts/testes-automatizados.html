@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>DiogoCripto - Blog de tecnologia</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="../index.html">DiogoCripto</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../sobre.html">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/DiogoFalqueto">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h1>Testes Automatizados</h1>
+
+        <h2>O que é ?</h2>
+
+        <img src="../img/jest-icone.jpg" class="img-top float-left">
+
+        <p>Testes automatizados são uma maneira de verificar se o codigo que você escreveu
+            está fazendo o que deveria, da maneira que deveria.</p>
+
+        <h4>Testes unitarios</h4>
+
+        <p>A intenção dos testes unitarios é validar individualmente cada unidade
+            (menor pedaço de codigo testavel), de forma isolada e rapida.</p>
+
+        <h4>Testes de integração</h4>
+
+        <p>Os testes de integração validam se pedassos diferentes de codigo interagem entre
+            si da forma adequada.</p>
+
+        <h4>TDD</h4>
+
+        <p>O tdd é baseado no ciclo vermelho, verde, refatore. Resumindo você cria um teste
+            para a funcionalidade, depois você cria o codigo para esse teste passar,
+            depois melhora o teste e repete tudo até todos os requisitos daquele codigo serem cumpridos.</p>
+
+        <h4>Jest</h4>
+
+        <img src="../img/jest-search.jpg" class="img">
+
+        <p>Jest é uma estrutura para testes automatizados em javascript. Que pode ser usada
+            no frontend e no backend.</p>
+
+        <h4>Instale</h4>
+
+        <p>Rode o comando acegir no diretorio do projeto:</p>
+
+        <p><code class="code">npm install -D jest</code></p>
+
+        <h4>Como funciona?</h4>
+
+        <p>Crie arquivos com o final .test.js . Os arquivos de testes podem ter vários testes neles.
+            Ao rodar os testes eles já com as funções do jest no escopo global, mais se você quiser
+            importalas explicitamente use <code class="code">import {describe, expect, test} from
+    ‘@jest/globals’</code> no começo do codigo.</p>
+
+        <p>Para definir um teste use a função test() ou it(). Elas recebem um nome e uma função
+            (que é o teste), o nome deve definir o que o teste estar fazendo, o test() ou it() da
+            função deve der considerido como parte da frase. Essas funções são iguais, mais você deve
+            usar o que soe melhor no contesto da frase.</p>
+
+        <p>A maioria dos teste precisa de alguma validação. Esse é criado usando a função expect(),
+            que recebe o que deve ser analizado, pode ser um objeto, uma variavel, uma expressão
+            ou uma função que retorne isso. E ai temos os “matcher” dessa função expect(),
+            que são vários, vou listar alguns:</p>
+
+        <p>Obs.: Matcher são funções para fazer validações.</p>
+
+        <p><code class="code">.toBe()</code> //verifica se os objetos são iguais. (Muinto usado)</p>
+        <p><code class="code">.toEqual()</code> //verifica se os valores são iguais.</p>
+
+        <p>A difereça é que .toBe() verificaria todos os campos de um objeto,
+            já o .toEqual() retornaria um erro</p>
+
+        <p><code class="code">.toBeNull()</code> //verifica se o valor é null</p>
+        <p><code class="code">.toBeUndefined</code> //verifica se o valor é undefined</p>
+        <p><code class="code">.toBeDefined</code> //verifica se o valor é definido.
+            O oposto de .toBeUndefined</p>
+
+        <p>Esses verificam o que um if concideraria:</p>
+        <p><code class="code">.toBeTruthy()</code> //verifica se o valor é verdadeiro</p>
+        <p><code class="code">.toBeFalsy()</code> //verifica se o resultado é falso</p>
+        <p><code class="code">.not</code> //inverte o valor</p>
+
+        <p>Para ligar com arrays:</p>
+        <p><code class="code">.toContain()</code> //verifica se um valor esta dentro do array.</p>
+
+        <p>Lidar com erros:</p>
+        <p><code class="code">.toThrow()</code> //valida se gera um erro. Pode receber a mensage
+            de erro esperada como parametro.</p>
+
+        <p>Caso os matcher passem, o teste passa. Se eles falharem, o teste falha.
+            Se o teste não tiver um matcher ou expect, ele passa sempre.</p>
+
+        <p>Você pode acumular testes relacionados em suites de teste. Faça isso com a
+            função describe(). Ela recebe como parametro um nome e uma função que contenha os
+            outros testes dentro. Ex:</p>
+
+        <code class="code">
+<pre>
+    describe(“usuarios”, ()=>{
+        test(“criar usuario”, ()=>{
+            expect( criarUsuarios() ).not.toThrow()
+        }
+        test(“deletar usuario”, ()=>{
+            expect( deletarUsuarios() ).not.toThrow()
+        }
+    }
+</pre>
+</code>
+
+        <h4>Testes assicronos</h4>
+
+        <p>A função test() e it() aceitam funções assicronas como parametro.
+            Adicione a palavra-chave async antes da função passada para o teste. Ex:</p>
+
+        <code class="code">
+<pre>
+    describe(“usuarios”, ()=>{
+        test(“criar usuario”, async ()=>{
+            expect( await criarUsuarios() ).not.toThrow()
+        }
+        test(“deletar usuario”, async ()=>{
+            expect( await deletarUsuarios() ).not.toThrow()
+        }
+    }
+</pre>
+</code>
+
+        <h4>Preparar ambiente para os testes</h4>
+
+        <p>Existem a funções para preparar o ambiente de testes:</p>
+
+        <p><code class="code">beforcEach()</code> => recebe uma função e roda ela antes de cada teste.</p>
+        <p><code class="code">afterEach()</code> => recebe uma função e roda ela depois de cada teste.</p>
+        <p><code class="code">beforcAll()</code> => recebe uma função e roda ela antes de todos os testes.
+            Roda uma vez só.</p>
+        <p><code class="code">afterAll()</code> => recebe uma função e roda ela depois de todos os testes.
+            Roda uma vez só.</p>
+
+        <p>Obs: Elas aceitam funções assicronas.</p>
+
+        <p>Quando colocados fora de um describe() o escopo dessas funções é o arquivo.
+            Quando colocados dentro de um describe() o escopo é esse describe()</p>
+
+        <h4>Rodar os Testes</h4>
+
+        <p>Adicione o script test no package.json:</p>
+
+        <code class="code">
+<pre>
+    “scripts”: {
+        “test”: “jest”
+    }
+</pre>
+</code>
+
+        <p>Depois rode o comando:</p>
+
+        <code class="code">npm test</code>
+
+        <p>Que o jest vai procurar nos diretorios e subdiretorios do projetos e rodar todos
+            os arquivos com final .test.js. Ele vai mostrar os resoltados no console,
+            informando quantos testes passaram, quantos falharam e quais falaram.</p>
+
+        <h4>Conclução</h4>
+
+        <p>Agora você sabe o basico sobre testes automatizados. Aproveite!</p>
+    </div>
+
+    <footer class="row footer">
+        <h5 class="col-sm">Site sobre programação e informatica. Isso é apenas um robin.</h5>
+        <ul class="col-sm list-none">
+            <h6>Principal</h6>
+            <li><a class="link-none footer-link" href="../index.html">Home</a></li>
+            <li><a class="link-none footer-link" href="../sobre.html">Sobre</a></li>
+        </ul>
+        <ul class="col-sm list-none">
+            <h6>Redes Sociais</h6>
+            <li><a class="link-none footer-link" href="https://github.com/DiogoFalqueto">GitHub</a></li>
+            <li><a class="link-none footer-link" href="#">Instagram</a></li>
+        </ul>
+    </footer>
+
+    <div class="scripts">
+        <!-- JavaScript (Opcional) -->
+        <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>
