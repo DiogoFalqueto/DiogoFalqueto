@@ -55,3 +55,12 @@
 .code > pre {
     color: rgb(255, 255, 255)
 }
+
+.info {
+    color: #212529;
+    font-size: 12px;
+    font-weight: 900;
+}
+.info > a {
+    color: #212529;
+}
