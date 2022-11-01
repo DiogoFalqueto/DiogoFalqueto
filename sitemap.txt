@@ -1,0 +1,5 @@
+https://diogofalqueto.github.io/DiogoCripto/
+https://diogofalqueto.github.io/DiogoCripto/sobre.html
+https://diogofalqueto.github.io/DiogoCripto/posts/tribler.html
+https://diogofalqueto.github.io/DiogoCripto/posts/docker.html
+https://diogofalqueto.github.io/DiogoCripto/posts/testes-automatizados.html
