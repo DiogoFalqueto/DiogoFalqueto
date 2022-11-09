@@ -64,3 +64,28 @@
 .info > a {
     color: #212529;
 }
+
+.ads728x90 {
+    width: 730px; /* 728 + 2 das bordas */
+    height: 122px; /* 90 + 2 das bordas + 30 do titulo */
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+.ads160x300 {
+    width: 162px; /* 160 + 2 das bordas */
+    height: 332px; /* 300 + 2 das bordas + 30 do titulo */
+    border: 1px solid black;
+    float: right;
+    margin: 10px;
+}
+
+.ads-head {
+    height: 30px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+.ads-head > * {
+    margin: 0;
+}
